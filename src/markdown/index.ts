@@ -83,6 +83,7 @@ class CustomMdRenderer extends Renderer {
       return `[${text}](${href})`;
     }
   }
+
   override image(href: string, title: string, text: string): string {
     let destination;
 
