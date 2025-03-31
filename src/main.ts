@@ -40,7 +40,7 @@ program
     "--model <string>",
     "specified or read from environment ${CEREB_DEFAULT_MODEL}",
   )
-  .option("--attachement <string>", "file path or url")
+  .option("--attachment <string>", "file path or url")
   .option("--pretty")
   .description(
     `
@@ -56,7 +56,7 @@ const {
   format,
   rawInput,
   dryRun,
-  attachement,
+  attachment,
   pretty,
   latestQuery,
   history,
@@ -100,9 +100,9 @@ const queryMessage: QueryMessages = {
   newMessage: [],
 };
 
-if (attachement) {
-  const attachementMessage = await pathOrUrlToAttachmentMessage(attachement);
-  queryMessage.newMessage.push(attachementMessage);
+if (attachment) {
+  const attachmentMessage = await pathOrUrlToAttachmentMessage(attachment);
+  queryMessage.newMessage.push(attachmentMessage);
 }
 
 if (rawInput) {
