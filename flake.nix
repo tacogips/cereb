@@ -2,7 +2,7 @@
 
   description = "yet another ai chat client";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
+    nixpkgs.url = "github:tacogips/nixpkgs-security/4a5495d1c0a7c62200b55deeeecb64f03b093056";
     flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
@@ -34,7 +34,7 @@
 
         getNpmPackage =
           attr:
-          if builtins.hasAttr attr nodePackages then nodePackages.${attr} else pkgs.nodePackages.${attr};
+          if builtins.hasAttr attr nodePackages then nodePackages.${attr} else pkgs.${attr};
 
       in
       {
@@ -43,12 +43,9 @@
             bun
             (getNpmPackage "typescript-language-server")
             just
-            node2nix
           ];
           shellHook = ''
             echo "Welcome to the development environment!"
-            echo "To generate node-packages.nix, run:"
-            echo "node2nix -i node-packages.json"
           '';
         };
         packages.cereb = pkgs.stdenv.mkDerivation {
